@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.custom-scrollbar::-webkit-scrollbar {
+    height: 4px; 
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: grey; 
+    border-radius: 2px; 
+  }
+
+ 
+  .custom-scrollbar {
+    scrollbar-color: grey transparent; 
+    scrollbar-width: thin; 
+  }
