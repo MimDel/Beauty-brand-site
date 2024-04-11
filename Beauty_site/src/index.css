@@ -16,3 +16,8 @@
     scrollbar-color: grey transparent; 
     scrollbar-width: thin; 
   }
+
+  .text-stroke{
+    -webkit-text-stroke: 2px #FCE186;
+    color: transparent;
+  }

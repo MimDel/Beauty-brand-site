@@ -22,7 +22,7 @@ const Navbar = () => {
                 <img className='px-10' src = {Logo} alt="missha logo" />
             </div>
             <ul className='flex flex-row items-center justify-around w-[40%] shadow-custom'>
-                <li className='text-primary text-md font-bold cursor-pointer'>ABOUT</li>
+                <li className='text-primary text-md font-bold cursor-pointer' onClick={()=>navigate('/About')}>ABOUT</li>
                 <li className='text-primary text-md font-bold cursor-pointer'>CONTACT</li>
                 <li className="text-primary font-bold text-[32px] cursor-pointer"><BsHandbag /></li>
             </ul>
