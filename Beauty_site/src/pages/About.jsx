@@ -4,6 +4,7 @@ import HeroAbout from '../components/HeroAbout'
 import BrandStory from '../assets/missha_brand_story.mp4'
 import VideoPoster from '../assets/video_poster.png'
 import TextDevider from '../components/TextDevider'
+import InfoBubbleBaner from '../components/InfoBubbleBaner' 
 
 const About = () => {
   return (
@@ -17,6 +18,7 @@ const About = () => {
         </div>
       </div>
       <TextDevider />
+      <InfoBubbleBaner />
     </div>
   )
 }

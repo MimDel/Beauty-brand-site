@@ -3,24 +3,24 @@ import Navbar from '../components/Navbar'
 import TimeRevolutionHero from '../components/TimeRevolutionHero'
 import ProductCatalog from '../components/ProductCatalog'
 import CreamPhoto from '../assets/creams.webp'
-import TimeRev from '../assets/time_revolution.webp'
-import Products from '../utils/Product'
+import SuperAqua from '../assets/bitmap.png'
+import Products from '../utils/ProductSA'
 
-const ProductsTimeRevolution = () => {
+const ProductSuperAqua = () => {
   return (
     <div>
         <Navbar />
         <TimeRevolutionHero 
-          title="Time Revolution"
-          text="Comforts the skin all day long! Soothing Artemisia Care Line."
-          image={TimeRev}  />
+          title="Super Aqua"
+          text="100-hour moisture penetration ability of 10 kinds of hyaluronic acids!"
+          image={SuperAqua}  />
         <div className='flex justify-center'>
-          <hr className='w-[80%] h-1 bg-tertiary my-10' />
+          <hr className='w-[80%] h-1 bg-primary my-10' />
         </div>
-        <ProductCatalog prod={Products} />
+        <ProductCatalog prod={Products}/>
         <img className='w-full h-[200px]' src={CreamPhoto} alt="" />
     </div>
   )
 }
 
-export default ProductsTimeRevolution
+export default ProductSuperAqua

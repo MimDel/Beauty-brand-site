@@ -3,6 +3,7 @@ import './App.css'
 import {Routes, Route} from 'react-router-dom'
 import LandingPage from './pages/LandingPage'
 import ProductsTimeRevolution from './pages/ProductsTimeRevolution'
+import ProductSuperAqua from './pages/ProductSuperAqua'
 import About from './pages/About'
 
 function App() {
@@ -13,8 +14,8 @@ function App() {
       <Routes>
         <Route path='/' element={<LandingPage />} />
         <Route path='/TimeRevolution' element={<ProductsTimeRevolution />} />
+        <Route path='/SuperAqua' element={<ProductSuperAqua/>}/>
         <Route path='/About' element={<About />}/>
-
       </Routes>
     </>
   )

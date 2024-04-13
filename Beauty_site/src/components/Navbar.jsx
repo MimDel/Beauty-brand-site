@@ -16,7 +16,7 @@ const Navbar = () => {
         <div className='flex flex-row bg-secondary w-full h-[100px] '>
             <ul className='flex flex-row items-center justify-around w-[40%] space-x-10 shadow-custom'>
                 <li className='text-primary text-md font-bold cursor-pointer' onClick={() => navigate('/TimeRevolution')}>TIME REVOLUTION</li>
-                <li className='text-primary text-md font-bold cursor-pointer'>SUPER AQUA</li>
+                <li className='text-primary text-md font-bold cursor-pointer' onClick={() => navigate('/SuperAqua')}>SUPER AQUA</li>
             </ul>
             <div className='flex flex-row items-start justify-center bg-primary w-[20%] h-[150px] cursor-pointer' onClick={() => navigate('/')}>
                 <img className='px-10' src = {Logo} alt="missha logo" />
