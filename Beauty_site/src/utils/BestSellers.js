@@ -9,24 +9,28 @@ import Cover4_B from "../assets/tr_foam_cleanser.png"
 
 const BestSellers = [
     {
+        id: 10,
         cover: Cover1_A,
         coverHovered: Cover1_B,
         title: "Super Aqua Ultra Hyalron Balm Cream Original"
     },
 
     {
+        id: 1,
         cover: Cover2_A,
         coverHovered: Cover2_B,
         title: "Time Revolution Artemisia Treatment Essence"
     },
 
     {
+        id: 12,
         cover: Cover3_A,
         coverHovered: Cover3_B,
         title: "Super Aqua Ultra Hyalron Ampoule"
     },
 
     {
+        id: 2,
         cover: Cover4_A,
         coverHovered: Cover4_B,
         title: "Time Revolution Artemisia pack Foam Cleanser"

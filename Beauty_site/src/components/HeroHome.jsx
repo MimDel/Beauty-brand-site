@@ -1,7 +1,10 @@
 import React from 'react'
 import Missha from '../assets/missha.png'
+import { useNavigate } from 'react-router-dom'
 
 const HeroHome = () => {
+  let navigate = useNavigate()
+
   return (
     <div className='w-full h-[700px] -mt-16'>
       <div className="relative">
@@ -14,7 +17,11 @@ const HeroHome = () => {
           <p className='text-lg text-white w-[50%]'> We have listened closely to the 
           <span className='text-tertiary'> skin-related concerns </span>
           of our customers to create effects that <span className='text-tertiary'> satisfy </span> them.</p>
-          <button className='w-[250px] mt-10 py-2 bg-tertiary rounded-full text-md text-white font-bold'>Shop now</button>
+          <button className='w-[250px] mt-10 py-2 bg-tertiary rounded-full text-md text-white font-bold cursor-pointer' 
+           onClick={() => navigate(`/SuperAqua`)}
+          >
+            Shop now
+          </button>
         </div>
       </div>
     </div>
