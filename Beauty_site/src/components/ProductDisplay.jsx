@@ -1,19 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import Button from './Button';
-import { useParams } from 'react-router-dom';
-import fetchProductById from '../utils/fetchProductById';
+//import { useParams } from 'react-router-dom';
+//import fetchProductById from '../utils/fetchProductById';
 import { useShoppingCart } from '../contexts/ShoppingCartContext'
 
-const ProductDisplay = () => {
-    const { id } = useParams();
-    const [product, setProduct] = useState(null);
+const ProductDisplay = ({ prod }) => {
+    //const { id } = useParams();
+    //const [product, setProduct] = useState(null);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [currentImage, setCurrentImage] = useState('');
     const { increaseQuantity } = useShoppingCart()
+    const { id, title, description, price, ingredients, images } = prod;
 
     const numericId = parseInt(id, 10);
 
     useEffect(() => {
+        if (images && images.length > 0) {
+            setCurrentImage(images[0].url);
+        }
+    }, [images]);
+
+    /*useEffect(() => {
         const fetchProduct = async () => {
             const fetchedProduct = await fetchProductById(id);
             setProduct(fetchedProduct);
@@ -21,17 +28,11 @@ const ProductDisplay = () => {
         };
 
         fetchProduct();
-    }, [id]);
+    }, [id]);*/
 
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
     };
-
-    if (!product) {
-        return <div>Loading...</div>;
-    }
-
-    const { title, description, price, ingredients, images } = product; //destructure product
 
     return (
         <div className='flex w-full justify-center my-16'>
@@ -55,10 +56,10 @@ const ProductDisplay = () => {
                         <div>
                             <p className='text-lg leading-tight font-semibold mb-4'>{title}</p>
                             <p className='text-md mb-4'>{description}</p>
-                            <p className='text-md'>€ {price}</p>
+                            <p className='text-md'>€ {price.toFixed(2)}</p>
                         </div>
                         <button
-                            className="text-primary bg-secondary mt-4"
+                            className="text-primary bg-secondary font-semibold mt-4"
                             onClick={toggleDropdown}
                         >
                             {isDropdownOpen ? 'Hide Ingredients' : 'Show Ingredients'}
@@ -68,7 +69,7 @@ const ProductDisplay = () => {
                                 {ingredients}
                             </div>
                         )}
-                        <div className='flex flex-col  justify-end  w-[255px]' onClick={() => {increaseQuantity(numericId)}} >
+                        <div className='flex flex-col  justify-end  w-[255px]' onClick={() => { increaseQuantity(numericId) }} >
                             <Button title="ADD TO BAG" />
                         </div>
                     </div>

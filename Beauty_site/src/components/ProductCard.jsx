@@ -16,7 +16,7 @@ const ProductCard = ({id, images, title, description, price, category}) => {
         <img className='w-[200px] h-[200px] cursor-pointer' src={imageUrl} alt="essence mist" onClick={() => navigate(`/${category}/ProductInfo/${id}`)}/>
         <p className='text-center font-semibold text-md'>{title}</p>
         <p className='text-center text-s'>{description}</p>
-        <p>€ {price}</p>
+        <p>€ {price.toFixed(2)}</p>
         <div onClick={() => {increaseQuantity(id)}}><Button title="ADD TO BAG"/></div>
     </div>
   )
