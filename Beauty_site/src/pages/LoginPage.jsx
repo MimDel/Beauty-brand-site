@@ -16,6 +16,10 @@ const LoginPage = () => {
                 email: email,
                 password: password
             })
+            
+            const token = response.data.token;
+            localStorage.setItem('token', token);
+            
             console.log(response.data)
             login()
             navigate('/')

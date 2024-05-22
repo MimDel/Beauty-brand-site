@@ -16,16 +16,21 @@ const RegisterPage = () => {
     const handleRegister = async () => {
         if (password !== confirmPassword) {
             setErrorMessage("Passwords do not match.");
-            return; // Stop the registration process
+            return;
         }
-        setErrorMessage(''); // Clear any previous errors
-        // Proceed with further actions here, like making an API call to register the user
+        setErrorMessage('');
 
         try {
+            console.log('Sending registration data:', { email, password });
             const response = await axios.post('http://localhost:3000/users/register', {
                 email: email,
                 password: password
             })
+
+            console.log('Registration response:', response.data); 
+            const token = response.data.token;
+            localStorage.setItem('token', token); 
+
             console.log('Registration successful: ', response.data)
             login()
             navigate('/')

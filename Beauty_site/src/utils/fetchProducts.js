@@ -1,4 +1,3 @@
-import axios from "axios"
 
 const fetchProducts = async () => {
     return await fetch('http://localhost:3000/products')

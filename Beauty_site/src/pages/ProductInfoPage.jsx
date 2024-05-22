@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import ProductDisplay from '../components/ProductDisplay';
 import ProductDetailsHowToUse from '../components/ProductDetailsHowToUse';
 import fetchProductById from '../utils/fetchProductById';
+import Reviews from '../components/Reviews';
+import ReviewCreated from '../components/ReviewCreated';
 
 const ProductInfoPage = () => {
   const { id } = useParams();
@@ -32,6 +34,8 @@ const ProductInfoPage = () => {
     <div>
       <ProductDisplay prod={product} />
       <ProductDetailsHowToUse prod={product} />
+      <Reviews prod={product}/>
+      <ReviewCreated productId={product.id}/>
     </div>
   );
 };
