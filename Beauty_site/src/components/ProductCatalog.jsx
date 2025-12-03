@@ -2,7 +2,6 @@ import React from 'react';
 import ProductCard from './ProductCard';
 
 const ProductCatalog = ({ prod, category }) => {
-  // Ensure prod is not null before calling filter
   const filteredProducts = prod ? prod.filter(product => product.category === category) : [];
 
   return (

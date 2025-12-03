@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { addReviewToProduct } from '../utils/addReviews.js';
 
-const ProductReviewForm = ({ productId }) => {
+const Review = ({ productId }) => {
     const [rating, setRating] = useState('');
     const [reviewText, setReviewText] = useState('');
     const [error, setError] = useState('');
@@ -20,6 +20,7 @@ const ProductReviewForm = ({ productId }) => {
         setSuccess('Review added successfully!');
         setRating('');
         setReviewText('');
+        window.location.reload();
       } catch (error) {
         setError('Error adding review. Please try again.');
       }
@@ -57,4 +58,4 @@ const ProductReviewForm = ({ productId }) => {
     );
   };
   
-  export default ProductReviewForm;
+  export default Review;

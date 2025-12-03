@@ -7,14 +7,14 @@ const ShoppingCartItem = ({product}) => {
 
   useEffect(() => {
     fetchProducts().then(fetchedProducts => {
-      console.log('Fetched Products:', fetchedProducts); // Check what is actually fetched
+      console.log('Fetched Products:', fetchedProducts);
       setProducts(fetchedProducts);
     });
   }, []);
 
   const ProductInCart = products ? products.find(productInProducts => productInProducts.id === product.id) : []
-  const { increaseQuantity, decreaseQuantity, removeFromCart} = useShoppingCart() //shopping cart context
-  const [quantity, setQuantity] = useState(1) //tracking quantity
+  const { increaseQuantity, decreaseQuantity, removeFromCart} = useShoppingCart()
+  const [quantity, setQuantity] = useState(1)
 
   //console.log('SHOPPING CART IMG -->', ProductInCart)
 
@@ -24,13 +24,11 @@ const ShoppingCartItem = ({product}) => {
 
   console.log('CartItem -->', ProductInCart)
 
-  //increases quantity
   const increase = () => {
       increaseQuantity(product.id)
       setQuantity(prevQuantity => prevQuantity + 1)
   }
 
-  //decreases quantity
   const decrease = () => {
       if (quantity > 1) {
           decreaseQuantity(product.id)

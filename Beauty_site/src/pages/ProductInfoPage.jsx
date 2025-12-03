@@ -11,6 +11,7 @@ const ProductInfoPage = () => {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
+
     const fetchProduct = async () => {
       const fetchedProduct = await fetchProductById(id);
 
@@ -34,8 +35,8 @@ const ProductInfoPage = () => {
     <div>
       <ProductDisplay prod={product} />
       <ProductDetailsHowToUse prod={product} />
-      <Reviews prod={product}/>
-      <ReviewCreated productId={product.id}/>
+      <Reviews prod={product} />
+      <ReviewCreated productId={product.id} />
     </div>
   );
 };

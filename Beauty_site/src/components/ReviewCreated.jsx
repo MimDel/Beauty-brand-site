@@ -33,7 +33,7 @@ const ReviewCreated = ({ productId }) => {
   return (
     <div className='flex justify-center w-full'>
       <div className='flex flex-col w-[80%]'>
-        <div className='rounded mb-6 bg-primary text-white border-primary border-2 px-16 py-1 cursor-pointer text-center text-lg'>Reviews</div>
+        <div className='rounded mb-6 bg-primary text-white border-primary border-2 px-16 py-1 text-center text-lg'>Reviews</div>
         {reviews.length === 0 ? (
           <div>
             <p className='text-md'>No reviews for this product yet.</p>

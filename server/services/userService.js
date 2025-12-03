@@ -10,12 +10,10 @@ const createUser = async (req, res) => {
     //   if (existingUser) {
     //     return res.status(400).send('User already exists');
     //   }
-
-      // Create the user
+ 
       const user = new User({ email, password });
       await user.save();
-  
-      // Generate a JWT token
+
       const token = jwt.sign({ _id: user._id, email: user.email }, 'your_jwt_secret', { expiresIn: '1h' });
       res.status(201).json({ token });
       
@@ -36,7 +34,6 @@ const verifyUser = async ({ email, password }) => {
     if (!isMatch) {
         throw new Error('Invalid credentials');
     }
-    console.log("With hashed password:", user.password);
     return user;
 }
 
