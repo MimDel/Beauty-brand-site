@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
 const getReviews = async (productId) => {
@@ -10,4 +11,10 @@ const getReviews = async (productId) => {
   }
 };
 
-export {getReviews};
+export const useProductReviews = (productId) => {
+  return useQuery({
+    queryKey: ['reviews', productId],
+    queryFn: () => getReviews(productId), 
+    enabled: !!productId,
+  });
+};

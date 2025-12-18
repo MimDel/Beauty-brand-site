@@ -1,52 +1,39 @@
-import React, { useState, useEffect } from 'react';
-import { getReviews } from '../utils/getReview';
+import React from 'react';
+import { useProductReviews } from '../utils/getReview';
 import { CgProfile } from "react-icons/cg";
 
 const ReviewCreated = ({ productId }) => {
-  const [reviews, setReviews] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const { data: reviews, isLoading, isError } = useProductReviews(productId);
 
-  useEffect(() => {
-    const fetchReviews = async () => {
-      try {
-        const fetchedReviews = await getReviews(productId);
-        setReviews(fetchedReviews);
-      } catch (error) {
-        setError('Error fetching reviews');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchReviews();
-  }, [productId]);
-
-  if (loading) {
+  if (isLoading) {
     return <div>Loading reviews...</div>;
   }
 
-  if (error) {
-    return <div>{error}</div>;
+  if (isError) {
+    return <div>Error fetching reviews</div>;
   }
+  const reviewsList = reviews || [];
 
   return (
     <div className='flex justify-center w-full'>
       <div className='flex flex-col w-[80%]'>
-        <div className='rounded mb-6 bg-primary text-white border-primary border-2 px-16 py-1 text-center text-lg'>Reviews</div>
-        {reviews.length === 0 ? (
+        <div className='rounded mb-6 bg-primary text-white border-primary border-2 px-16 py-1 text-center text-lg'>
+          Reviews
+        </div>
+        
+        {reviewsList.length === 0 ? (
           <div>
             <p className='text-md'>No reviews for this product yet.</p>
             <hr className="w-full h-1 bg-tertiary mt-2 mb-8" />
           </div>
         ) : (
           <ul>
-            {reviews.map((review, index) => (
+            {reviewsList.map((review, index) => (
               <li key={index}>
                 <div className='flex flex-row items-center'>
                   <div className='pr-4 text-lg'><CgProfile /></div>
                   <div className='text-sm font-bold'>
-                    <p>User: {review.user.email}</p>
+                    <p>User: {review.user?.email}</p>
                     <p>Date: {new Date(review.createdAt).toLocaleDateString()}</p>
                   </div>
                 </div>
